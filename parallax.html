@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden; 
+        }
+
+        nav, footer {
+            background: #002132;
+        }
+
+        footer {
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .nav-logo {
+            display: inline-block;
+            padding: 1em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-menu {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+            height: 2em;            
+        }
+
+        .nav-menu li a {
+            padding: 1em 2em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-menu li a:hover {
+            background: #151235;
+        }
+
+        .nav-submenu {
+            position: absolute;
+            top: 3em;
+            margin: 1em 0;
+            padding: 0;
+            display: none;
+        }
+
+        .nav-submenu li {
+            display: inline-block;
+            width: 100%;
+            height: 3em;
+            position: relative;
+        }
+
+        .nav-submenu li a {
+            background: blueviolet;
+            color: white;
+            text-decoration: none;
+            padding: 1em 2em 1em 1em;
+        }
+
+        .nav-submenu li a:hover {
+            background: violet;
+        }
+
+        .nav-menu li:hover .nav-submenu {
+            display: block;
+        }
+
+
+
+
+
+        main {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 2px;
+        }
+
+        .section { 
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 0 5px #000;
+        }
+
+        .parallax::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateZ(-1px) scale(1.5);
+            background-size: 100%;
+            z-index: -1;
+        }
+
+        .static {
+            background: white;
+        }
+
+        .bg1::after {
+            background-image: url('https://virtualbackgrounds.site/wp-content/uploads/2021/01/washingtonian-office.jpg');
+        }
+
+        .bg2::after {
+            background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p2/1948406-tampo-da-mesa-de-madeira-para-exibicao-com-fundo-desfocado-do-restaurante-gr%C3%A1tis-foto.jpg');
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                LOGO
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#menu1">Menu 1</a></li>
+                <li class="nav-item">
+                    <a href="#menu2">Menu 2</a>
+
+                    <ul class="nav-submenu">
+                        <li><a href="#submenu">Submenu 1</a></li>
+                        <li><a href="#submenu">Submenu 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu3">Menu 3</a>
+
+                    <ul class="nav-submenu">
+                        <li><a href="#submenu">Submenu 1</a></li>
+                        <li><a href="#submenu">Submenu 2</a></li>
+                        <li><a href="#submenu">Submenu 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+
+        <section class="section parallax bg1">
+            <h1 style="text-align: center; font-size: 3em; background: #0000006e; padding: 1em; ">
+                Aprenda a criar páginas profissionais como essa<br>
+                mesmo sem saber programar
+            </h1>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+        <section class="section parallax bg2">
+            <h1>Fluffy Kitten</h1>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+        
+        <footer>
+            Rodapé
+        </footer>
+    </main>
+
+</body>
+</html>
