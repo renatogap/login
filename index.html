@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo Programação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .container {
+            min-height: 100%;
+        }
+
+        .nav {
+            background: #6f0bbb;
+            position: fixed;
+            top: 0; /* Position the navbar at the top of the page */
+            width: 100%; /* Full width */
+            /*overflow: hidden;*/
+        }
+
+        .nav .nav-icon {
+            display: inline-block;
+            width: 6em;
+            padding-left: 1em;
+            font-weight: bold;
+        }
+
+        .nav .nav-icon a{
+            color: #58ca33;
+        }
+
+        .nav .nav-menu {
+            display: inline-block;
+            z-index: 10;
+        }
+
+        .nav .nav-option-right {
+            float: right;
+            padding: 1em 0;
+        }
+
+        .nav .nav-option-right a {
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .nav .nav-option-right a:hover {
+            background: #462163;
+        }
+
+        .nav .nav-option {
+            display: inline-block;
+            display: none;
+        }
+
+        .nav .nav-option a {
+            color: white;
+            text-align: center;
+            padding: 0.8em 1em;
+            border: 1px solid #666;
+            border-radius: 5px;
+        }
+
+        .nav .nav-option a:hover {
+            background: #462163;
+        }
+
+        .nav .nav-menu li {
+            z-index: 9;
+            display: inline-block;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .nav .nav-menu li a{
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .nav .nav-menu li:hover {
+            background: #462163;
+            cursor: pointer;
+        }
+
+        .page {
+            border-radius: 5px;
+            width: 30%;
+            padding: 2em 3em;
+            margin: 4em auto;
+            box-shadow: 0 0 1em black;
+        }
+
+        input[type=text], input[type=password] {
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            width: 100%;
+            padding: 1em;
+            margin: 1em 0;
+            box-sizing: border-box;
+            font-size: 15px;
+            z-index: 1;
+        }
+
+        input[type=password] {
+            font-size: 15px;
+            padding: 1em;
+        }
+
+        button {
+            width: 100%;
+            font-size: 15px;
+            padding: 1em;
+            border-radius: 5px;
+            margin-top: 1em;
+        }
+
+        button[type="submit"] {
+            background: #6f0bbb;
+            color: white;
+            border: 1px solid #6f0bbb;
+        }
+
+        button[type="submit"]:hover {
+            background: #462163;
+            cursor: pointer;
+        }
+
+        button[type="button"] {
+            background: #ffbe2c;
+            border: 1px solid hsl(42, 50%, 47%);
+        }
+
+        button[type="button"]:hover {
+            background: rgb(223, 168, 40);
+            cursor: pointer;
+        }
+
+        .rodape {
+            background: #6f0bbb;
+            color: white;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            padding: 0.8em 0;
+        }
+
+        h3 {
+            margin-bottom: 0.5em;
+        }
+
+        hr {
+            margin-bottom: 1em;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        @media only screen and (max-width: 750px) {
+            .nav {
+                padding: 1em 0;
+            }
+            .nav .nav-menu {
+                clear: both;
+                display: none;
+                margin-top: 1em;
+            }
+
+            .nav .nav-menu li  {
+                z-index: 9;
+                display: none;
+                text-align: left;
+            }
+
+            .nav .nav-option {
+                display: block;
+                float: right;
+            }
+
+            .nav .nav-option-right {
+                display: none;
+            }
+
+            .page {
+                padding: 1em ;
+                width: 88%;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <ul class="nav-option">
+                <a href="#"> + </a>
+            </ul>
+            <ul class="nav-icon">
+                <a href="#home">PAYNOW</a></ul>
+            <ul class="nav-menu">
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#estoque">Estoque</a></li>
+                <li><a href="#vendas">Vendas</a></li>
+                <li><a href="#relatorios">Relatórios</a></li>
+            </ul>
+
+            <ul class="nav-option-right">
+                <a href="#sair">Sair</a>
+            </ul>
+        </div>
+
+
+        <div class="page">
+            <h2>Sistema de Pagamento</h2>
+            <hr>
+
+            <label for="">E-mail:</label>
+            <input type="text">
+
+            <label for="">Senha:</label>
+            <input type="password">
+
+            <div>
+                <a href="#esqueci-senha">Esqueci a senha</a>
+            </div>
+
+            <button type="submit">Entrar</button>
+            <button type="button">Cadastrar-se</button>
+
+
+        </div>
+
+        <div class="rodape">
+            rodapé
+        </div>
+    </div>
+
+    <script>
+        let menu = document.querySelector('.nav .nav-menu');
+        let itensMenus = document.querySelectorAll('.nav .nav-menu li');
+        let botao = document.querySelector('.nav .nav-option a');
+
+
+
+        document.querySelector('.nav .nav-option').addEventListener('click', function(){
+
+            if(!menu.classList.contains('show')) {
+
+                menu.classList.add('show');
+                menu.style = "display: block";
+
+                itensMenus.forEach(function(item){
+                    item.style = "display: block";
+                });
+
+                botao.textContent = ' - ';
+            } else {
+                menu.classList.remove('show');
+                menu.style = "display: none";
+
+                itensMenus.forEach(function(item){
+                    item.style = "display: none";
+                });
+
+                botao.textContent = ' + ';
+            }
+        })
+    </script>
+</body>
+</html>
